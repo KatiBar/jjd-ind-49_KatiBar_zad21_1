@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz produktu</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<p>
+    <a th:href="@{/}">Powrót do strony głównej</a>
+</p>
+<div class="banner">
+    <h1>Dodaj nowy produkt:</h1>
+</div>
+<div class="container">
+    <form method="post" action="/add" th:object="${product}">
+        <p>
+            Nazwa:
+            <input type="text" placeholder="Abc" th:field="*{name}">
+        </p>
+        <p>
+            Cena:
+            <input type="number" step="0.01" th:field="*{price}">
+            zł
+        </p>
+        <p>
+            Kategoria:
+            <select id="category" th:field="*{category}">
+                <option selected value="">Wybierz...</option>
+                <option value="FOOD">Art. spożywcze</option>
+                <option value="HOME">Art. domowe</option>
+                <option value="OTHER">Inna</option>
+            </select>
+        </p>
+        <button type="submit">Dodaj produkt</button>
+    </form>
+
+</div>
+</body>
+</html>

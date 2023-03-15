@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktów</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <p>
+        <a th:href="@{/}">Powrót do strony głównej</a>
+    </p>
+
+    <div class="banner">
+        <div class="withCategory" th:if="${category != null}">
+            <h1>Dostępne produkty w kategorii: <span th:text="${category.getPl().toString()}"></span> </h1>
+        </div>
+
+        <div class="withoutCategory">
+            <h1 th:unless="${category}">Wszystkie dostępne produkty</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <ol>
+            <li th:each="product: ${products}">
+                <p class="name" th:text="${product.getName()}">Nazwa produktu</p>
+                <p class="price">Cena: <span th:text="${product.getPrice()}"></span> zł </p>
+                <p th:unless="${category}">Kategoria: <span th:text="${product.getCategory().getPl().toString()}" th:unless="${category}"></span></p>
+            </li>
+        </ol>
+
+        <p class="sum">Suma cen wszystkich produktów w tej kategorii wynosi: <span th:text="${sum}"></span> zł</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+h1,
+ul,
+.newProduct {
+    padding-left: 8%;
+    padding-right: 8%;
+    display: block;
+    padding-block-start: 50px;
+    padding-block-end: 50px;
+    text-align: center;
+}
+
+h1 {
+    background-color: darkseagreen;
+}
+
+ul {
+    font-size: 25px;
+    text-align: left;
+}
+
+.newProduct {
+    background-color: darkseagreen;
+    padding-block-start: 20px;
+    padding-block-end: 20px;
+    font-size: 25px;
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkty</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+    <h1>Co chcesz wyświetlić?</h1>
+    <nav class="navi">
+        <ul>
+            <li>
+                <a href="/lista">Wszystkie dostępne produkty</a>
+            </li>
+            <li>
+                <a href="/lista?kategoria=FOOD">Artykuły spożywcze</a>
+            </li>
+            <li>
+                <a href="/lista?kategoria=HOME">Arykuły domowe</a>
+            </li>
+            <li>
+                <a href="/lista?kategoria=OTHER">Inne</a>
+            </li>
+        </ul>
+    </nav>
+    <p class="newProduct">
+        <a href="/add">Dodaj nowy produkt</a>
+    </p>
+</body>
+</html>
