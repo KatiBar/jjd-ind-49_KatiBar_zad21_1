@@ -27,9 +27,8 @@
             Kategoria:
             <select id="category" th:field="*{category}">
                 <option selected value="">Wybierz...</option>
-                <option value="FOOD">Art. spożywcze</option>
-                <option value="HOME">Art. domowe</option>
-                <option value="OTHER">Inna</option>
+                <option th:each="category: ${T(com.example.jjdind49_katibar_zad21_1.Category).values()}"
+                th:text="${category.pl}" th:value="${category.name()}">Przykładowa kategoria</option>
             </select>
         </p>
         <button type="submit">Dodaj produkt</button>

@@ -21,7 +21,7 @@ public class ProductController {
         return "index";
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/list")
     public String showList(Model model, @RequestParam(required = false, name = "kategoria") Category category) {
         Collection<Product> products;
         if (category == null) {
@@ -32,7 +32,7 @@ public class ProductController {
         }
         model.addAttribute("products", products);
         model.addAttribute("sum", ProductUtility.calculatePricesSum(products));
-        return "lista";
+        return "list";
     }
 
     @GetMapping("/add")
@@ -43,11 +43,16 @@ public class ProductController {
 
     @PostMapping("/add")
     String addProductFromForm(Product product) {
-        if (product != null & product.getName() != null & product.getPrice() > 0 & product.getCategory() != null ) {
+        if (product != null && !product.getName().isEmpty() && product.getPrice() > 0 && product.getCategory() != null ) {
             productRepository.addProduct(product);
-            return "redirect:/lista?kategoria=" + product.getCategory();
+            return "redirect:/list?kategoria=" + product.getCategory();
         } else {
-            return "wrongProduct";
+            return "redirect:/wrongProduct";
         }
+    }
+
+    @GetMapping("/wrongProduct")
+    String err() {
+        return "wrongProduct";
     }
 }
